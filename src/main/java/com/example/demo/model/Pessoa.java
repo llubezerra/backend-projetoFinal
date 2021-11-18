@@ -11,7 +11,6 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
 @Entity
 @Table(name = "PESSOA")
 public class Pessoa {
