@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/pessoa")
@@ -21,6 +22,16 @@ public class PessoaController {
     @PostMapping
     public Pessoa salvar(@RequestBody Pessoa p){
         return repository.save(p);
+    }
+
+    @GetMapping("/{id}")
+    public Pessoa buscarPorId(@PathVariable Long id){
+        Optional<Pessoa> pessoaPesquisada = repository.findById(id);
+
+        if(pessoaPesquisada.isPresent()){
+            return repository.getById(id);
+        }
+        return null;
     }
 
 }
