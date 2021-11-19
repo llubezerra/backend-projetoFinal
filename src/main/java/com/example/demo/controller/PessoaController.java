@@ -34,4 +34,9 @@ public class PessoaController {
         return null;
     }
 
+    @PutMapping("/{id}")
+    public void editarPessoa(@RequestBody Pessoa p){
+        repository.save(p);
+    }
+
 }
