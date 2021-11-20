@@ -5,6 +5,7 @@ import com.example.demo.repositories.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,7 +21,7 @@ public class PessoaController {
     }
 
     @PostMapping
-    public Pessoa salvar(@RequestBody Pessoa p){
+    public Pessoa salvar(@RequestBody @Valid Pessoa p){
         return repository.save(p);
     }
 
